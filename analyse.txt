@@ -1,1 +1,14 @@
-sfhg
+
+types de données : 
+	liste : maillon
+	graphe : sommet, arc, graphe (tableau sommet & taille)
+
+modules :
+	graphe : ajout sommet, arc, gestion structure, voisinage, affichage, initialisation...
+	dijkstra : 
+	liste : reprendre td
+
+
+test :
+	
+	
