@@ -1,9 +1,10 @@
 #include "graphe.h"
-#include "type.h"
+#include "types.h"
 #include "liste_arc"
 #include <stdlib.h>
 #include <stdio.h>
 
+//
 T_SOMMET * creer_graphe(char* fic, int* ptaille){
 	FILE* pf = fopen(nomfic, 'r');
 	int numero; 
@@ -47,7 +48,13 @@ T_SOMMET * creer_graphe(char* fic, int* ptaille){
 }
 
 void visualiser_graphe(T_SOMMET graphe, int taille){
-
+	int i;
+	for(i=0;i<n;i++){
+		printf("Nom : %s",graphe[i].nom);
+		printf("Lat : %lf // Long : %lf", x,y);
+		visualiser_a(graphe[i].voisins);
+		puts("");
+	}
 
 
 }

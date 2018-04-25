@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "types.h"
 #include "liste_arc.h"
 
 
@@ -10,6 +11,24 @@ Liste creer_liste_a() {
 int liste_vide_a(l) {
     return !l;
 }
+
+void affiche_a(T_ARC a){
+	printf("Arrivee : %d", a.arrivee);
+	printf("Coût : %lf", a.cout);
+
+}
+	
+void visualiser_a(L_ARC l) {
+    L_ARC p;
+    if(liste_vide_a(l)) {
+ 	printf("liste vide\n");
+	return;
+    }
+    for(p=l; p!=NULL; p = p->suiv)
+        affiche_a(&(p->val));
+	puts("\n");
+}
+
 
 
 Liste ajout_tete(T_ARC a, L_ARC l) {
