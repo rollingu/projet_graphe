@@ -1,11 +1,10 @@
 #include "graphe.h"
-#include "types.h"
-#include "liste_arc"
+#include "liste_arc.h"
 #include <stdlib.h>
 #include <stdio.h>
 
 //
-T_SOMMET * creer_graphe(char* fic, int* ptaille){
+int load_graphe(char* fic,T_SOMMET** pgraphe, int* ptaille){
 	FILE* pf = fopen(nomfic, 'r');
 	int numero; 
 	double lat,longi; 
@@ -16,7 +15,7 @@ T_SOMMET * creer_graphe(char* fic, int* ptaille){
 
 	if (!pf){
 		puts("erreur de lecture fichier");
-		return NULL;
+		return 1;
 	}
 	fscanf(pf, "%d", ptaille);
 	
@@ -29,9 +28,9 @@ T_SOMMET * creer_graphe(char* fic, int* ptaille){
 		
 		fgets(mot,511,f); 
 			if (mot[strlen(mot)-1]<32) mot[strlen(mot)-1]=0;
-		strcpy(*(graphe+i)->nom,mot);
-		*(graphe + i)-> x = lat;
-		*(graphe + i)-> y = longi;
+		strcpy( (*pgraphe)[i]->nom,mot);
+		*(pgraphe)[i]-> x = lat;
+		*(pgraphe)[i]-> y = longi;
 	}
 	
 	fgets(mot,511,f);  // on passe la ligne Arêtes du graphe : noeud1 noeud2 valeur
@@ -44,7 +43,7 @@ T_SOMMET * creer_graphe(char* fic, int* ptaille){
 
 
 	fclose(pf);
-	return graphe;	
+	return 0;	
 }
 
 void visualiser_graphe(T_SOMMET graphe, int taille){

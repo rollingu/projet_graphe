@@ -1,38 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "types.h"
 #include "liste_arc.h"
+#include "arc.h"
 
 
-Liste creer_liste_a() {
+L_ARC creer_liste_a() {
     return NULL;
 }
 
-int liste_vide_a(l) {
+int liste_vide_a(L_ARC l) {
     return !l;
 }
-
-void affiche_a(T_ARC a){
-	printf("Arrivee : %d", a.arrivee);
-	printf("Coût : %lf", a.cout);
-
-}
 	
-void visualiser_a(L_ARC l) {
+void visualiser_la(L_ARC l) {
     L_ARC p;
     if(liste_vide_a(l)) {
  	printf("liste vide\n");
 	return;
     }
     for(p=l; p!=NULL; p = p->suiv)
-        affiche_a(&(p->val));
+        affiche_a(p->val);
 	puts("\n");
 }
 
 
 
-Liste ajout_tete(T_ARC a, L_ARC l) {
-    T_ARC p = calloc(1,sizeof(*p));
+L_ARC ajout_tete_a(T_ARC a, L_ARC l) {
+    L_ARC p = calloc(1,sizeof(*p));// peut-être plus
     if (p==NULL)
         return creer_liste_a();
 
@@ -42,7 +36,7 @@ Liste ajout_tete(T_ARC a, L_ARC l) {
 }
 
 
-Liste ajout_queue_a(T_ARC a, L_ARC l) {
+L_ARC ajout_queue_a(T_ARC a, L_ARC l) {
     if (liste_vide_a(l)) {
 	return ajout_tete_a(a,l);
     }
