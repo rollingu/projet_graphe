@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "arc.h"
 #include "sommet.h"
-
+#include "liste_arc.h"
 
 
 
@@ -14,7 +14,8 @@
 //    
 //    0 si OK. UN nb != 0 si errerur lecture
 //		1 : erreur de lecture fichier
-int load_graphe( char * nomFIchier, T_SOMMET** pgraphe, int* ptaille );
+//		2: erreur alloc pgraphe
+T_SOMMET* load_graphe( char * nomfic, T_SOMMET* pgraphe, int* ptaille );
 
 
-void visualiser_graphe(T_SOMMET graphe, int taille);
+void visualiser_graphe(T_SOMMET **pgraphe, int taille);
