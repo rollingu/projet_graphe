@@ -8,7 +8,9 @@
 typedef struct lsucc {			// lsucc est une "liste" d'arc
     T_ARC val;
     struct lsucc* suiv;
-}* L_ARC;
+}* L_ARC ;
+
+
 
 L_ARC creer_liste_a(void);
 int liste_vide_a(L_ARC l);
