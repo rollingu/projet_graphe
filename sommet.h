@@ -1,3 +1,6 @@
+#include "arc.h"
+#include "liste_arc.h"
+
 #ifndef _SOMMET_H_H
 #define _SOMMET_H_H
 
