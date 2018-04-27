@@ -1,5 +1,5 @@
-#ifndef _Liste
-#define _Liste
+#ifndef _L_INT_H_H
+#define _L_INT_H_H
 
 #include <stdio.h>
 

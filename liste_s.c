@@ -1,17 +1,17 @@
 #include <stdio.h>
-#include "liste_i.h"
+#include "liste_s.h"
 #include <stdlib.h>
 
-L_INT creer_liste(void){
+L_SOMMET creer_liste(void){
     return NULL;}
 
-int liste_vide(L_INT l){
+int liste_vide(L_SOMMET l){
     return !l;}
 
-void visualiser(L_INT l){
+void visualiser(L_SOMMET l){
     if (liste_vide(l)) printf("Liste Vide");
     else {
-    	L_INT p=l;
+    	L_SOMMET p=l;
     	while (!liste_vide(p)){
         	affiche(&p->val);
 		p=p->suiv;
@@ -19,31 +19,31 @@ void visualiser(L_INT l){
 	}
 }
 
-L_INT supprimer_tete(L_INT l){
-    if (!liste_vide(l)){ L_INT p;
+L_SOMMET supprimer_tete(L_SOMMET l){
+    if (!liste_vide(l)){ L_SOMMET p;
         p=l->suiv;
         free(l);
 	return p;
     }
     return l;}
 
-void liberer(L_INT l){
+void liberer(L_SOMMET l){
     while (!liste_vide(l)){
         l=supprimer_tete(l);
     }
 }
 
-L_INT ajout_tete(int cart, L_INT l){
+L_SOMMET ajout_tete(T_SOMMET cart, L_SOMMET l){
     Maillon *pm = calloc(1,sizeof(*pm));
     if (pm==NULL) return creer_liste();
     pm->val=cart;
     pm->suiv=l;
     return pm;}
 
-L_INT ajout_queue(int cart, L_INT l){
+L_SOMMET ajout_queue(T_SOMMET cart, L_SOMMET l){
     if (liste_vide(l)) {return ajout_tete(cart,l);
         }
-    L_INT p=l;
+    L_SOMMET p=l;
     while (!liste_vide(p->suiv)){
             p=p->suiv;
     }
@@ -57,11 +57,11 @@ L_INT ajout_queue(int cart, L_INT l){
     return l;
 }
 
-L_INT supprimen(int n, L_INT l){
+L_SOMMET supprimen(int n, L_SOMMET l){
 	if (liste_vide(l)) return creer_liste();
 	if (n==0) return supprimer_tete(l);
 	int i;
-	L_INT p =l;
+	L_SOMMET p =l;
 	for ( i=1;i<n;i++){
 		p=p->suiv;
 		if (p==NULL) printf("tes moche");
