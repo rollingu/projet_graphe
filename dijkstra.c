@@ -77,12 +77,13 @@ void algo( T_SOMMET * graphe, int taille, int a, int b){ // avec a le numero du 
 				j = point->val;
 				if ( (pcc[j] < pccmin) && (pcc[j] >= 0 )) { 
 					pccmin = pcc[j];
-					sj = point->val;			
+					sj = point->val;		
 				}
 				point = point->suiv;			
 			}
 		}
 		// ici : sj est le sommet de plus petite valeur de pcc[j]
+		// et j est l'indice de ce sommet
 
 		c = supprimer_element_s(sj,c);
 		s[sj] = 1;
@@ -93,13 +94,14 @@ void algo( T_SOMMET * graphe, int taille, int a, int b){ // avec a le numero du 
 		int coutJK = -1;
 		while (!point){
 			k = point->val;
+			coutJK = calcul_cout(graphe,j,k)
 			
+			if ( pcc[k]>(pcc[j] + coutJK){
+				pcc[k] = pcc[j] + coutJK;
+				pere[k] = j;
+			}			
 		}
-			
 		
-		
-		
-			
 	} while ( (!s[a]) && (ppc[sj] != -1) );
 	
 	
