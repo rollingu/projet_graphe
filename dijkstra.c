@@ -3,7 +3,7 @@
 
 L_INT adjacents(T_SOMMET * graphe,int sommet){
 	L_ARC p = T_SOMMET.voisins;
-	L_SOMMET sortie = creer_liste_i();
+	L_INT sortie = creer_liste_i();
 
 	if (!p={
 		sortie = ajout_queue_i(p->val.arrivee,sortie);	
@@ -16,7 +16,7 @@ L_INT adjacents(T_SOMMET * graphe,int sommet){
 	return sortie;
 }
 
-bool est_dans_liste(T_SOMMET * graphe,int a, L_INT liste){
+bool est_dans_liste(int a, L_INT liste){
 	L_INT p = liste;
 	while (!p){
 		if ( p->val == a ) return true;
@@ -90,7 +90,7 @@ void algo( T_SOMMET * graphe, int taille, int a, int b){ // avec a le numero du 
 
 		// faire pour tous les sommets adjacents : 
 		T_SOMMET k;
-		L_SOMMET point = adj;
+		L_INT point = adj;
 		int coutJK = -1;
 		while (!point){
 			k = point->val;

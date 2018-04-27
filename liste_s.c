@@ -9,11 +9,11 @@ int liste_vide(L_SOMMET l){
     return !l;}
 
 void visualiser(L_SOMMET l){
-    if (liste_vide(l)) printf("Liste Vide");
+    if (!l) printf("Liste Vide");
     else {
     	L_SOMMET p=l;
     	while (!liste_vide(p)){
-        	affiche(&p->val);
+        	printf("Nom : %c \n",p->nom);
 		p=p->suiv;
     	}
 	}

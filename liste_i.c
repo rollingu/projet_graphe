@@ -13,7 +13,7 @@ void visualiser(L_INT l){
     else {
     	L_INT p=l;
     	while (!liste_vide(p)){
-        	affiche(&p->val);
+        	//affiche(&p->val);
 		p=p->suiv;
     	}
 	}
