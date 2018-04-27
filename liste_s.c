@@ -2,7 +2,7 @@
 #include "liste_s.h"
 #include <stdlib.h>
 
-L_SOMMET creer_liste(void){
+L_SOMMET creer_liste_s(void){
     return NULL;}
 
 int liste_vide(L_SOMMET l){
@@ -35,12 +35,12 @@ void liberer(L_SOMMET l){
 
 L_SOMMET ajout_tete(T_SOMMET cart, L_SOMMET l){
     Maillon *pm = calloc(1,sizeof(*pm));
-    if (pm==NULL) return creer_liste();
+    if (pm==NULL) return creer_liste_s();
     pm->val=cart;
     pm->suiv=l;
     return pm;}
 
-L_SOMMET ajout_queue(T_SOMMET cart, L_SOMMET l){
+L_SOMMET ajout_queue_s(T_SOMMET cart, L_SOMMET l){
     if (liste_vide(l)) {return ajout_tete(cart,l);
         }
     L_SOMMET p=l;
@@ -49,7 +49,7 @@ L_SOMMET ajout_queue(T_SOMMET cart, L_SOMMET l){
     }
     
     Maillon *pm=calloc(1,sizeof(*pm));
-    if (pm==NULL) return creer_liste();
+    if (pm==NULL) return creer_liste_s();
     
     p->suiv=pm;
     pm->val=cart;
@@ -57,20 +57,22 @@ L_SOMMET ajout_queue(T_SOMMET cart, L_SOMMET l){
     return l;
 }
 
-L_SOMMET supprimen(int n, L_SOMMET l){
-	if (liste_vide(l)) return creer_liste();
-	if (n==0) return supprimer_tete(l);
-	int i;
-	L_SOMMET p =l;
-	for ( i=1;i<n;i++){
-		p=p->suiv;
-		if (p==NULL) printf("tes moche");
+L_SOMMET supprimer_element_s(T_SOMMET n, L_SOMMET l){
+	if (liste_vide(l)) return creer_liste_s();
+	L_SOMMET p1 =l;
+	if (!strcmp(p1->nom,n.nom)){
+		return supprimer_tete(l);	
 	}
-	// p point ici sur la case (n-1)
-	Maillon * temp = p->suiv->suiv;
-	free(p->suiv);
-	p->suiv =temp ;
-	
+	L_SOMMET p2 = l->suiv;
+	while (!p2){
+		if (!strcmp(p2->nom,n.nom)){
+			Maillon * temp = p2->suiv;
+			free(p2->suiv);
+			p1->suiv =temp ;
+		}
+		p1=p2;
+		p2 = p2->suiv;
+	}
 	
 	return l;
 }

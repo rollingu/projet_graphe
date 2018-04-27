@@ -2,7 +2,7 @@
 #include "liste_i.h"
 #include <stdlib.h>
 
-L_INT creer_liste(void){
+L_INT creer_liste_i(void){
     return NULL;}
 
 int liste_vide(L_INT l){
@@ -35,12 +35,12 @@ void liberer(L_INT l){
 
 L_INT ajout_tete(int cart, L_INT l){
     Maillon *pm = calloc(1,sizeof(*pm));
-    if (pm==NULL) return creer_liste();
+    if (pm==NULL) return creer_liste_i();
     pm->val=cart;
     pm->suiv=l;
     return pm;}
 
-L_INT ajout_queue(int cart, L_INT l){
+L_INT ajout_queue_i(int cart, L_INT l){
     if (liste_vide(l)) {return ajout_tete(cart,l);
         }
     L_INT p=l;
@@ -49,7 +49,7 @@ L_INT ajout_queue(int cart, L_INT l){
     }
     
     Maillon *pm=calloc(1,sizeof(*pm));
-    if (pm==NULL) return creer_liste();
+    if (pm==NULL) return creer_liste_i();
     
     p->suiv=pm;
     pm->val=cart;
@@ -58,7 +58,7 @@ L_INT ajout_queue(int cart, L_INT l){
 }
 
 L_INT supprimen(int n, L_INT l){
-	if (liste_vide(l)) return creer_liste();
+	if (liste_vide(l)) return creer_liste_i();
 	if (n==0) return supprimer_tete(l);
 	int i;
 	L_INT p =l;

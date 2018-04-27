@@ -1,5 +1,5 @@
 #include "dijkstra.h"
-#include "liste.h"
+
 
 L_INT adjacents(T_SOMMET * graphe,int sommet){
 	L_ARC p = T_SOMMET.voisins;
@@ -43,8 +43,8 @@ void algo( T_SOMMET * graphe, int taille, int a, int b){ // avec a le numero du 
 	double * pere = calloc(taille, sizeof(double));
 	int i;
 	
-	L_INT c = creer_liste_i(); // attention ce sont des listes de sommets
-	int * s[taille]; 
+	L_INT c = creer_liste_i(); 
+	int * s[taille];
 	
 	L_INT adj = adjacents(graphe,a);
 		
