@@ -43,7 +43,7 @@ double calcul_cout(T_SOMMET * graphe,int a, int b){ // a et b sont les sommets, 
 	
 }
 
-void algo( T_SOMMET * graphe, int taille, int a, int b){ // avec a le numero du sommet de depart, et b le numéro du sommet d'arrivée. potentiellement a modifier pour partir des noms de sommets plutot
+double * algo( T_SOMMET * graphe, int taille, int a, int b){ // avec a le numero du sommet de depart, et b le numéro du sommet d'arrivée. potentiellement a modifier pour partir des noms de sommets plutot
 	double * pcc = calloc(taille, sizeof(double));
 	double * pere = calloc(taille, sizeof(double));
 	int i;
@@ -109,6 +109,6 @@ void algo( T_SOMMET * graphe, int taille, int a, int b){ // avec a le numero du 
 		
 	} while ( (!s[a]) && (pcc[sj] != -1) );
 	
-	
+	return pere;
 }
 
