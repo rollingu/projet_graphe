@@ -5,10 +5,10 @@
 
 
 
-main(){	int n,err; T_SOMMET * graphe = NULL;
+main(){	int n; T_SOMMET * graphe = NULL;
 
 
-	err = load_graphe("graphe1.txt",&graphe,&n);
+	graphe = load_graphe("graphe1.txt",graphe,&n);
 
 	visualiser_graphe(&graphe,n);
 }
