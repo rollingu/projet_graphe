@@ -1,28 +1,33 @@
+#include <stdlib.h>
+#include "liste_i.h"
 #include "dijkstra.h"
 
 
+
 L_INT adjacents(T_SOMMET * graphe,int sommet){
-	L_ARC p = T_SOMMET.voisins;
+	L_ARC p = (graphe[sommet]).voisins;
 	L_INT sortie = creer_liste_i();
 
-	if (!p={
-		sortie = ajout_queue_i(p->val.arrivee,sortie);	
+	if (!p){
+		//sortie = ajout_queue_i((p->val).arrivee,sortie);	
+		return sortie;
 	}
+	sortie = ajout_queue_i((p->val).arrivee,sortie);
 	p = p->suiv;
 	while (!p){
-		sortie = ajout_queue_i(p->val.arrivee,sortie);
+		sortie = ajout_queue_i((p->val).arrivee,sortie);
 		p = p->suiv;	
 	}
 	return sortie;
 }
 
-bool est_dans_liste(int a, L_INT liste){
+int est_dans_liste(int a, L_INT liste){
 	L_INT p = liste;
 	while (!p){
-		if ( p->val == a ) return true;
+		if ( p->val == a ) return 1;
 		p = p->suiv;	
 	}
-	return false;
+	return 0;
 }
 
 double calcul_cout(T_SOMMET * graphe,int a, int b){ // a et b sont les sommets, on veut le cout pour aller de a vers b
@@ -66,7 +71,7 @@ void algo( T_SOMMET * graphe, int taille, int a, int b){ // avec a le numero du 
 	{
 		// Selection du sommet sj de C de plus petite valeur de pcc[j]		
 		
-		L_INT point = L_INT c;
+		L_INT point = c;
 		if (!point) {
 			j = point->val;		
 			pccmin = pcc[j];
@@ -83,26 +88,26 @@ void algo( T_SOMMET * graphe, int taille, int a, int b){ // avec a le numero du 
 			}
 		}
 		// ici : sj est le sommet de plus petite valeur de pcc[j]
-		// et j est l'indice de ce sommet
+		
 
-		c = supprimer_element_s(sj,c);
+		c = supprimer_element_i(sj,c);
 		s[sj] = 1;
 
 		// faire pour tous les sommets adjacents : 
-		T_SOMMET k;
-		L_INT point = adj;
+		int k; // k est le numéro du sommet
+		L_INT point1 = adj;
 		int coutJK = -1;
-		while (!point){
-			k = point->val;
-			coutJK = calcul_cout(graphe,j,k)
+		while (!point1){
+			k = point1->val;
+			coutJK = calcul_cout(graphe,j,k);
 			
-			if ( pcc[k]>(pcc[j] + coutJK){
+			if ( pcc[k]>(pcc[j] + coutJK)){
 				pcc[k] = pcc[j] + coutJK;
 				pere[k] = j;
 			}			
 		}
 		
-	} while ( (!s[a]) && (ppc[sj] != -1) );
+	} while ( (!s[a]) && (pcc[sj] != -1) );
 	
 	
 }
