@@ -3,22 +3,22 @@
 
 #include <stdio.h>
 
-struct maillon {
+struct maillon_i {
     int val;
-    struct maillon * suiv;
+    struct maillon_i * suiv;
     };
 
-typedef struct maillon Maillon;
-typedef Maillon * L_INT;
+typedef struct maillon_i Maillon_i;
+typedef Maillon_i * L_INT;
 
 L_INT creer_liste_i();
 int liste_vide(L_INT l);
 void visualiser(L_INT l);
-L_INT ajout_tete(int a, L_INT l);
-L_INT supprimer_tete(L_INT l);
+L_INT ajout_tete_i(int a, L_INT l);
+L_INT supprimer_tete_i(L_INT l);
 void liberer(L_INT l);
 L_INT ajout_queue_i(int a, L_INT l);
-L_INT supprimen(int n, L_INT l);
+L_INT supprime_element_i(int n, L_INT l);
 
 #endif
 
