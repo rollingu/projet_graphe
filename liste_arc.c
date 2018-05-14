@@ -13,7 +13,7 @@ int liste_vide_a(L_ARC l) {
 }
 	
 void visualiser_la(L_ARC l) {
-    L_ARC p;
+    L_ARC p=l;
     if(liste_vide_a(l)) {
  	printf("liste vide\n");
 	return;
