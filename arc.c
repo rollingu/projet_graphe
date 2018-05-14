@@ -4,7 +4,7 @@
 
 
 void affiche_a(T_ARC a){
-	printf("Arrivee : %d", a.arrivee);
-	printf("Coût : %lf", a.cout);
+	printf("Arrivee : %d ", a.arrivee);
+	printf("Coût : %lf \n", a.cout);
 
 }

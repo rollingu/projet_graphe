@@ -6,7 +6,7 @@
 
 
 typedef struct {			// on définit un sommet par son
-    char* nom;				// nom et sa position
+    int id;				// nom et sa position
     double x,y;				// il possède en plus une liste
     L_ARC voisins;
 } T_SOMMET;				// d'arc.

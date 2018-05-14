@@ -20,7 +20,6 @@ void visualiser_la(L_ARC l) {
     }
     for(p=l; p!=NULL; p = p->suiv)
         affiche_a(p->val);
-	puts("\n");
 }
 
 
@@ -56,4 +55,5 @@ L_ARC ajout_queue_a(T_ARC a, L_ARC l) {
 
     return l;
 }
+
 
