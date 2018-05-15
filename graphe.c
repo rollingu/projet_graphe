@@ -1,18 +1,22 @@
-#include "graphe.h"
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "graphe.h"
 
-//
+
 int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
     FILE* pf ;
     int num;
     char line[128];
     char mot[512]; // on pourrait utiliser une seule de ces deux variables mais on choisit
     char nom[512]; // d'utiliser les deux pour la clarete du code
-    int i,nbarc;
+    int i, nbarc, code_h;
     T_ARC arc;
     T_SOMMET s;
+	Liste * table_h;
+	
+
 
     if ( (pf = fopen(nomfic, "rt")) == NULL ) {
         puts("erreur ouverture fichier");
@@ -31,11 +35,11 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
     fgets(mot,511,pf); // on passe la ligne Sommets du graphe
 
     for(i = 0; i<=*pnbsommet; i++) { // on récupère les sommets
-        fscanf(pf,"%d %lf %lf %s", &(s.id), &(s.x), &(s.y), line); //attention pb de lecture ?
+        fscanf(pf,"%d %lf %lf %s", &(s.id), &(s.x), &(s.y), &(s.line), &(s.nom)); //attention pb de lecture ?
         (*pgraphe)[s.id] = s;
-        printf("%s %s\n", line, mot);
+        affiche_s(s);
         fgets(mot,511,pf);
-        printf("%s \n", mot);
+        //printf("%s \n", mot);
 
         //strcpy( graphe[i].nom,mot);
     }
@@ -56,10 +60,11 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
 void visualiser_graphe(T_SOMMET** pgraphe, int taille) {
     int i;
     for(i=0; i<taille; i++) {
-        printf("id : %d ",((*pgraphe)[i]).id);
-        printf(" Lat : %lf // Long : %lf \n", ((*pgraphe)[i]).x,((*pgraphe)[i]).y);
-        visualiser_la(((*pgraphe)[i]).voisins);
-        puts("\n \n");
+	affiche_s(*pgraphe[i]);
+        //printf("id : %d ",((*pgraphe)[i]).id);
+        //printf(" Lat : %lf // Long : %lf \n", ((*pgraphe)[i]).x,((*pgraphe)[i]).y);
+        //visualiser_la(((*pgraphe)[i]).voisins);
+        //puts("\n \n");
     }
 
 
