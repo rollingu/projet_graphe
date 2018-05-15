@@ -4,7 +4,7 @@
 #include <string.h>
 
 //
-T_SOMMET* load_graphe(char* nomfic,T_SOMMET* graphe, int* pnbsommet){
+int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet){
 	FILE* pf ;
 	int num; 
 	char line[128]; 
@@ -14,24 +14,24 @@ T_SOMMET* load_graphe(char* nomfic,T_SOMMET* graphe, int* pnbsommet){
 	T_SOMMET s;
 
 	if ( (pf = fopen(nomfic, "rt")) == NULL ){
-		puts("erreur de lecture fichier");
-		return NULL;
+		puts("erreur ouverture fichier");
+		return 1;
 	}
 	fscanf(pf, "%d %d", pnbsommet, &nbarc);
 
-	graphe = (T_SOMMET*)calloc (*pnbsommet, sizeof(T_SOMMET));//allocation memoire pour graphe
+	*pgraphe = calloc (*pnbsommet, sizeof(T_SOMMET));//allocation memoire pour graphe
 
-	if (graphe == NULL){
+	if (*pgraphe == NULL){
 
 		puts("erreur alloc graphe");
-		return NULL;
+		return 2;
 		}
 	
 	fgets(mot,511,pf); // on passe la ligne Sommets du graphe
 	
 	for(i = 0; i<=*pnbsommet;i++){  // on récupère les sommets
 		fscanf(pf,"%d %lf %lf %s", &(s.id), &(s.x), &(s.y), line); //attention pb de lecture ?
-		graphe[s.id] = s;
+		(*pgraphe)[s.id] = s;
 		fgets(mot,511,pf); 
 
 		//	if (mot[strlen(mot)-1]<32) mot[strlen(mot)-1]=0;
@@ -45,10 +45,10 @@ T_SOMMET* load_graphe(char* nomfic,T_SOMMET* graphe, int* pnbsommet){
 
 	for(i = 0; i<nbarc;i++){
 		fscanf(pf,"%d %d %lf",&num, &(arc.arrivee), &(arc.cout));
-		graphe[num].voisins = ajout_tete_a(arc,graphe[num].voisins);
+		(*pgraphe)[num].voisins = ajout_tete_a(arc,(*pgraphe)[num].voisins);
 	}
 	fclose(pf);
-	return graphe;	
+	return 0;	
 }
 
 void visualiser_graphe(T_SOMMET** pgraphe, int taille){
