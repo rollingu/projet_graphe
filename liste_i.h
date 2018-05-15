@@ -6,7 +6,7 @@
 struct maillon_i {
     int val;
     struct maillon_i * suiv;
-    };
+};
 
 typedef struct maillon_i Maillon_i;
 typedef Maillon_i * L_INT;

@@ -5,12 +5,14 @@
 
 
 
-main(){	int n,err; T_SOMMET * graphe = NULL;
+main() {
+    int n,err;
+    T_SOMMET * graphe = NULL;
 
 
-	err = load_graphe("graphe1.txt",&graphe,&n);
-	
-	printf("%d err\n", err);
+    err = load_graphe("graphe1.txt",&graphe,&n);
 
-	visualiser_graphe(&graphe,n);
+    printf("%d err\n", err);
+
+    visualiser_graphe(&graphe,n);
 }
