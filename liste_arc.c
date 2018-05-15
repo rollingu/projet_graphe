@@ -25,7 +25,7 @@ void visualiser_la(L_ARC l) {
 
 
 L_ARC ajout_tete_a(T_ARC a, L_ARC l) {
-    L_ARC p = calloc(1,sizeof(*p));// peut-être plus
+    L_ARC p = calloc(1,sizeof(*p));
     if (p==NULL)
         return creer_liste_a();
 
