@@ -35,9 +35,8 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
     fgets(mot,511,pf); // on passe la ligne Sommets du graphe
 
     for(i = 0; i<=*pnbsommet; i++) { // on récupère les sommets
-        fscanf(pf,"%d %lf %lf %s", &(s.id), &(s.x), &(s.y), &(s.line), &(s.nom)); //attention pb de lecture ?
+        fscanf(pf,"%d %lf %lf %s", &(s.id), &(s.x), &(s.y), line, nom); //attention pb de lecture ?
         (*pgraphe)[s.id] = s;
-        affiche_s(s);
         fgets(mot,511,pf);
         //printf("%s \n", mot);
 
@@ -46,7 +45,7 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
 
 
 
-    fgets(mot,511,pf);  // on passe la ligne Arêtes du graphe : noeud1 noeud2 valeur
+    fgets(mot,511,pf);  // on passe la ligne Arêtes du graphe : noeud1 noeud2 valeur
 
     while(fscanf(pf,"%d %d %lf",&num, &(arc.arrivee), &(arc.cout))!=EOF ) { // on lit tant qu'on atteint pas la fin du fichier securite vis à vis du nb arc qui pourrait etre faux
         (*pgraphe)[num].voisins = ajout_tete_a(arc,(*pgraphe)[num].voisins);
@@ -57,17 +56,14 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
     return 0;
 }
 
-void visualiser_graphe(T_SOMMET** pgraphe, int taille) {
+void visualiser_graphe(T_SOMMET* graphe, int taille) {
     int i;
     for(i=0; i<taille; i++) {
-	affiche_s(*pgraphe[i]);
-        //printf("id : %d ",((*pgraphe)[i]).id);
-        //printf(" Lat : %lf // Long : %lf \n", ((*pgraphe)[i]).x,((*pgraphe)[i]).y);
-        //visualiser_la(((*pgraphe)[i]).voisins);
-        //puts("\n \n");
+	affiche_s(graphe[i]);
     }
 
 
 }
+
 
 

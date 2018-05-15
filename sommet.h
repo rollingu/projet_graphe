@@ -21,3 +21,4 @@ typedef struct {			// on définit un sommet par son
 void afficher_s(T_SOMMET s);
 
 #endif
+

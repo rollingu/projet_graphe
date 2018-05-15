@@ -11,12 +11,12 @@ L_ARC creer_liste_a() {
 int liste_vide_a(L_ARC l) {
     return !l;
 }
-
+	
 void visualiser_la(L_ARC l) {
     L_ARC p=l;
     if(liste_vide_a(l)) {
-        printf("liste vide\n");
-        return;
+ 	printf("liste vide\n");
+	return;
     }
     for(p=l; p!=NULL; p = p->suiv)
         affiche_a(p->val);
@@ -25,7 +25,7 @@ void visualiser_la(L_ARC l) {
 
 
 L_ARC ajout_tete_a(T_ARC a, L_ARC l) {
-    L_ARC p = calloc(1,sizeof(*p));
+    L_ARC p = calloc(1,sizeof(*p));// peut-être plus
     if (p==NULL)
         return creer_liste_a();
 
@@ -37,7 +37,7 @@ L_ARC ajout_tete_a(T_ARC a, L_ARC l) {
 
 L_ARC ajout_queue_a(T_ARC a, L_ARC l) {
     if (liste_vide_a(l)) {
-        return ajout_tete_a(a,l);
+	return ajout_tete_a(a,l);
     }
 
     L_ARC p=l;

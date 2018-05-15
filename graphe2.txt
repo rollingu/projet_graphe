@@ -1,5 +1,5 @@
 14	29
-Sommets du graphe
+Sommets du graphe	
 0	0.05	0.7	M1	Sommet1
 1	0.05	0.3	M1	Sommet2
 2	0.2	0.9	M1	Sommet3
@@ -14,8 +14,7 @@ Sommets du graphe
 11	0.8	0.7	M1	Sommet12
 12	0.8	0.3	M1	Sommet13
 13	0.95	0.5	M1	Sommet14
-Arcs du graphe :
-depart arrivee valeur
+Arcs du graphe : depart arrivee valeur		
 0	1	2
 0	3	4
 1	4	2

@@ -1,46 +1,44 @@
 
-types de données :
--> un seul fichier types.h (comment on gère les ifndef ?)
+types de données : -> un seul fichier types.h (comment on gère les ifndef ?)
 
-liste de d'arc, d'entier (id de sommet)
-(pile de sommet ???? pour reconstruire le chemin ???)
-graphe :
-sommet, arc, graphe (tableau sommet & taille)
+	liste de d'arc, d'entier (id de sommet)
+	(pile de sommet ???? pour reconstruire le chemin ???)
+	graphe : sommet, arc, graphe (tableau sommet & taille)
 
-gérer le type sommet pour ajouter nom de ligne, ou gérer ça avec un système d'écriture particulière : séparateur du genre &&&&"
+	gérer le type sommet pour ajouter nom de ligne, ou gérer ça avec un système d'écriture particulière : séparateur du genre &&&&"
 
 modules :
-arc/sommet
-liste : reprendre td --> 2 modules : entier (id de sommet), arc
-graphe : ajout sommet, arc, gestion structure, voisinage, affichage, initialisation...
-dijkstra : C et S liste de int (référencement des sommets)
-hachage : gestion des noms de stations
+	arc/sommet
+	liste : reprendre td --> 2 modules : entier (id de sommet), arc
+	graphe : ajout sommet, arc, gestion structure, voisinage, affichage, initialisation...
+	dijkstra : C et S liste de int (référencement des sommets)
+	hachage : gestion des noms de stations
 
-S tableau de booleen
+	S tableau de booleen
 
 test :
-chaque module a ses tests
-celui qui fait un module fait le programme de test NON L'INVERSE !!
+	chaque module a ses tests
+	celui qui fait un module fait le programme de test NON L'INVERSE !!
 
 
-Planing :
-gestion des types avant première séance
-scéance 2 gestion graphe OK
-scéance 2/3 fin dijkstra
+Planing : 
+	gestion des types avant première séance
+	scéance 2 gestion graphe OK
+	scéance 2/3 fin dijkstra
+	
+	Virgile : 
+		dijkstra
+		hachage
+	Guillaume :
+		graphe (afficher, initialiser)
+		listes
 
-Virgile :
-dijkstra
-hachage
-Guillaume :
-graphe (afficher, initialiser)
-listes
-
-
+		
 
 utilisation de git pour la gestion des fichiers :
-git pull origin master
-
-git add nom.fic
-git commit -m 'message'
-
-git push
+	git pull origin master
+	
+	git add nom.fic
+	git commit -m 'message'
+	
+	git push

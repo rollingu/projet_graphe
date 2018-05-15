@@ -14,5 +14,5 @@ main() {
 
     printf("%d err\n", err);
 
-    visualiser_graphe(&graphe,n);
+    visualiser_graphe(graphe,n);
 }

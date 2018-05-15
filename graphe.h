@@ -22,7 +22,7 @@ int load_graphe( char * nomfic, T_SOMMET** pgraphe, int* ptaille );
 
 // Fonction de visualisation du graphe
 // PARAMETRES
-//   **pgraphe: IN. adresse du graphe
+//  *pgraphe: IN. graphe
 //   taille : IN. taille du graphe
 // RETURN void
-void visualiser_graphe(T_SOMMET **pgraphe, int taille);
+void visualiser_graphe(T_SOMMET * pgraphe, int taille);

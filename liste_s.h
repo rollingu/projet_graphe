@@ -6,7 +6,7 @@
 struct maillon_s {
     T_SOMMET val;
     struct maillon_s * suiv;
-};
+    };
 
 typedef struct maillon_s Maillon_s;
 typedef Maillon_s * L_SOMMET;
