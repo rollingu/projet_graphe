@@ -2,6 +2,7 @@
 #include "liste_i.h"
 #include "dijkstra.h"
 #include <limits.h>
+#include "HEAP.h"
 
 
 L_INT adjacents(T_SOMMET * graphe,int sommet){
@@ -44,26 +45,42 @@ double calcul_cout(T_SOMMET * graphe,int a, int b){ // a et b sont les sommets, 
 }
 
 void algo( T_SOMMET * graphe, int taille, int a, int b, double * pere){ // avec a le numero du sommet de depart, et b le numéro du sommet d'arrivée. potentiellement a modifier pour partir des noms de sommets plutot
-	double pcc[taille];
+	int pcc[taille];
 	//double pere[taille];
 	int i;
+	int tempo;
+	//L_INT c = creer_liste_i(); 
 	
-	L_INT c = creer_liste_i(); 
+
+	int tas_c[taille];
+	
+
 	int s[taille];
 	
 	L_INT adj;
-		
 	
+	
+		
+
 	for (i=0;i<taille;i++){
 		pcc[i] = INT_MAX;
 		pere[i] = -1;
-		c = ajout_queue_i(i,c);
+		//c = ajout_queue_i(i,c);
+		tas_c[i] = i; // on ajoute tous les elements dans le tas
+		 
 		s[i] = 0;
 	}
 	
 	pcc[a] = 0;
+	tempo = tas_c[a];
+	tas_c[a] = 0;
+	tas_c[0] = tempo;
+
 	
-	double pccmin = LONG_MAX;
+	
+	
+	
+	int pccmin = INT_MAX;
 	int j = -1;
 	int sj = -1;
 	L_INT point;
@@ -72,29 +89,45 @@ void algo( T_SOMMET * graphe, int taille, int a, int b, double * pere){ // avec 
 	L_INT point1;
 	do
 	{
+		
 		printf("Debut de tour :\n");
-		// Selection du sommet sj de C de plus petite valeur de pcc[j]		
-		pccmin = LONG_MAX;
-		point = c;
-		if (point) {
-			//j = point->val;		
-			//pccmin = pcc[j];
+		// Selection du sommet sj de C de plus petite valeur de pcc[j]	
 
-			//point = point->suiv;
+		// avec le tas : en supposant que l'augmentation du tas ai ete bien faite, tas[0] est deja le numero du sommet de plus ptit pcc
+		// il faut trier le tas a chaque etape
+		for (i=0;i<taille;i++){ // arrive ici, tas_c est un tableau qui contient un tas de 1 element : le premier
 
-			while (point!=NULL){ // attention ! trop long, il faut avoir la liste c triee par pcc croissant
-				j = point->val;
-				if ( (pcc[j] < pccmin) && (pcc[j] >= 0 )) { 
-					pccmin = pcc[j];
-					sj = point->val;		
-				}
-				point = point->suiv;			
-			}
+			augmentetas(pcc,tas_c,i); // on met donc le tas a jour pour avoir un tas sur tout le tableau
 		}
+		sj = tas_c[0];
+
+			
+		//pccmin = LONG_MAX;
+		//point = c;
+		//if (point) {
+			////j = point->val;		
+			////pccmin = pcc[j];
+
+			////point = point->suiv;
+
+			//while (point!=NULL){ // attention ! trop long, il faut avoir la liste c triee par pcc croissant
+				//j = point->val;
+				//if ( (pcc[j] < pccmin) && (pcc[j] >= 0 )) { 
+				//	pccmin = pcc[j];
+				//	sj = point->val;		
+				//}
+				//point = point->suiv;			
+			//}
+		//}
 		// ici : sj est le sommet de plus petite valeur de pcc[j]
 		
 		printf("Valeur de sj : %d \n",sj);
-		c = supprime_element_i(sj,c);
+		//c = supprime_element_i(sj,c);
+
+		// pour supprimer lelement sj ( qui est celui de plus petit pcc, donc le premier) dans le tas :
+		suppressiontas(pcc,tas_c,taille,taille);
+
+
 		s[sj] = 1;
 		adj= adjacents(graphe,sj);
 		// faire pour tous les sommets adjacents : 
