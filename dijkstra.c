@@ -50,7 +50,7 @@ void algo( T_SOMMET * graphe, int taille, int a, int b, double * pere){ // avec 
 	int i;
 	int tempo;
 	//L_INT c = creer_liste_i(); 
-	
+	int taille_triee= taille-1;
 
 	int tas_c[taille];
 	
@@ -95,7 +95,7 @@ void algo( T_SOMMET * graphe, int taille, int a, int b, double * pere){ // avec 
 
 		// avec le tas : en supposant que l'augmentation du tas ai ete bien faite, tas[0] est deja le numero du sommet de plus ptit pcc
 		// il faut trier le tas a chaque etape
-		for (i=0;i<taille;i++){ // arrive ici, tas_c est un tableau qui contient un tas de 1 element : le premier
+		for (i=0;i<taille_triee;i++){ // arrive ici, tas_c est un tableau qui contient un tas de 1 element : le premier
 
 			augmentetas(pcc,tas_c,i); // on met donc le tas a jour pour avoir un tas sur tout le tableau
 		}
@@ -125,8 +125,8 @@ void algo( T_SOMMET * graphe, int taille, int a, int b, double * pere){ // avec 
 		//c = supprime_element_i(sj,c);
 
 		// pour supprimer lelement sj ( qui est celui de plus petit pcc, donc le premier) dans le tas :
-		suppressiontas(pcc,tas_c,taille,taille);
-
+		suppressiontas(pcc,tas_c,taille_triee,taille);
+		taille_triee -= 1;
 
 		s[sj] = 1;
 		adj= adjacents(graphe,sj);
