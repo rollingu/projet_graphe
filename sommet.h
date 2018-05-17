@@ -6,12 +6,19 @@
 
 
 typedef struct {			// on définit un sommet par son
-    int id;				// nom et sa position
-    double x,y;				// il possède en plus une liste
+    int id;				// id et sa position
+    double x,y;				// il possède en plus une liste d arc
     L_ARC voisins;
-} T_SOMMET;				// d'arc.
+    char * nom; 			//  un nom
+    char * line; 			// et une ligne
+} T_SOMMET;
 
 
+// Fonction affiche d'un sommet
+// PARAMETRES
+//	s : IN. un sommet qui va etre afficher
+// RETURN
 void afficher_s(T_SOMMET s);
 
 #endif
+

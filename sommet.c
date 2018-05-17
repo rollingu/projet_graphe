@@ -4,9 +4,13 @@
 
 void affiche_s(T_SOMMET s){
 
-	printf("%d\n",s.id);
-	printf("x: %lf  y: %lf   ", s.x,s.y);
-	visualiser_la(s.voisins);
+        printf("id : %d ",s.id);
+        printf(" Lat : %lf // Long : %lf \n", s.x,s.y);
+	printf("Nom : %s || Ligne : %s \n", s.nom,s.line);
+        visualiser_la(s.voisins);
 	puts("");
+
+
+	
 
 }

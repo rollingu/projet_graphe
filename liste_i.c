@@ -14,6 +14,7 @@ void visualiser(L_INT l){
     	L_INT p=l;
     	while (!liste_vide(p)){
         	//affiche(&p->val);
+		printf("%d\n",p->val);
 		p=p->suiv;
     	}
 	}
@@ -61,24 +62,28 @@ L_INT ajout_queue_i(int cart, L_INT l){
 
 
 L_INT supprime_element_i(int n, L_INT l){
-	if (liste_vide(l)) return creer_liste_i();
-	L_INT p1 = l;
-	if (p1->val == n){
-		return supprimer_tete_i(l);
-	}
-	L_INT p2 = l->suiv;
-	
-	while (!p2){
-		if (p2->val == n ){
-			Maillon_i * temp = p2->suiv;
-			free(p2->suiv);
-			p1->suiv =temp ;
+	if(!liste_vide(l)){
+		L_INT p1 =l;
+		if (p1->val == n){
+			return supprimer_tete_i(l);
 		}
-		p1=p2;
-		p2 = p2->suiv;
-	}
+		while(p1->suiv != NULL){
+			//p1=p1->suiv;
+			if (p1->suiv->val == n){
+				Maillon_i * tmp = p1->suiv;
+				p1->suiv=p1->suiv->suiv;
+				free(tmp);
+				return l;
+				
+			}
+			p1=p1->suiv;
+			
+		}
+		
+		return l;
 	
-	return l;
+	}
+	return creer_liste_i();
 
 
 }
