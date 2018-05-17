@@ -4,6 +4,7 @@
 #include <limits.h>
 #include "HEAP.h"
 
+//HODOR
 
 L_INT adjacents(T_SOMMET * graphe,int sommet){
 	L_ARC p = (graphe[sommet]).voisins;
