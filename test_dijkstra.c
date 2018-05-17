@@ -11,7 +11,7 @@ main(){
 	 int i; int depart=0; int arrivee = 5;
 	
 	
-	err = load_graphe("graphe1.txt",&graphe,&n);
+	err = load_graphe("grapheNewYork.csv",&graphe,&n);
 	printf("Graph load");
 	double peres[n]; L_INT adj;
 	visualiser_graphe(graphe,n);
@@ -37,6 +37,6 @@ main(){
 		
 	}
 	printf("Chemin à prendre :\n");
-	visualiser(chemin);
+	visualiser_i(chemin);
 
 }
