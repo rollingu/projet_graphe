@@ -5,31 +5,30 @@
 L_INT creer_liste_i(void){
     return NULL;}
 
-int liste_vide(L_INT l){
+int liste_vide_i(L_INT l){
     return !l;}
 
-void visualiser(L_INT l){
-    if (liste_vide(l)) printf("Liste Vide");
+void visualiser_i(L_INT l){
+    if (liste_vide_i(l)) printf("Liste Vide\n");
     else {
     	L_INT p=l;
-    	while (!liste_vide(p)){
-        	//affiche(&p->val);
-		printf("%d\n",p->val);
+    	while (!liste_vide_i(p)){
+		printf("%d -> ",p->val);
 		p=p->suiv;
     	}
 	}
 }
 
 L_INT supprimer_tete_i(L_INT l){
-    if (!liste_vide(l)){ L_INT p;
+    if (!liste_vide_i(l)){ L_INT p;
         p=l->suiv;
         free(l);
 	return p;
     }
     return l;}
 
-void liberer(L_INT l){
-    while (!liste_vide(l)){
+void liberer_i(L_INT l){
+    while (!liste_vide_i(l)){
         l=supprimer_tete_i(l);
     }
 }
@@ -42,10 +41,10 @@ L_INT ajout_tete_i(int cart, L_INT l){
     return pm;}
 
 L_INT ajout_queue_i(int cart, L_INT l){
-    if (liste_vide(l)) {return ajout_tete_i(cart,l);
+    if (liste_vide_i(l)) {return ajout_tete_i(cart,l);
         }
     L_INT p=l;
-    while (!liste_vide(p->suiv)){
+    while (!liste_vide_i(p->suiv)){
             p=p->suiv;
     }
     
@@ -62,7 +61,7 @@ L_INT ajout_queue_i(int cart, L_INT l){
 
 
 L_INT supprime_element_i(int n, L_INT l){
-	if(!liste_vide(l)){
+	if(!liste_vide_i(l)){
 		L_INT p1 =l;
 		if (p1->val == n){
 			return supprimer_tete_i(l);

@@ -10,7 +10,7 @@ main() {
     T_SOMMET * graphe = NULL;
 
 
-    err = load_graphe("graphe1.txt",&graphe,&n);
+    err = load_graphe("grapheNewYork.csv",&graphe,&n);
 
     printf("%d err\n", err);
 

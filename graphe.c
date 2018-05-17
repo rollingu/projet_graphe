@@ -7,14 +7,13 @@
 
 int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
     FILE* pf ;
-    int num;
     char line[128];
     char mot[512]; // on pourrait utiliser une seule de ces deux variables mais on choisit
     char nom[512]; // d'utiliser les deux pour la clarete du code
-    int i, nbarc, code_h;
+    int i, nbarc, code_h,taille_h,num;
     T_ARC arc;
     T_SOMMET s;
-	Liste * table_h;
+	 L_INT* table_h;
 	
 
 
@@ -22,9 +21,14 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
         puts("erreur ouverture fichier");
         return 1;
     }
-    fscanf(pf, "%d %d", pnbsommet, &nbarc);
+    fscanf(pf, "%d %d ", pnbsommet, &nbarc);
+
+	taille_h = 10 * *pnbsommet;
+
 
     *pgraphe = calloc (*pnbsommet, sizeof(T_SOMMET));//allocation memoire pour graphe
+	table_h = calloc(taille_h,sizeof(L_INT));
+
 
     if (*pgraphe == NULL) {
 
@@ -33,21 +37,35 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
     }
 
     fgets(mot,511,pf); // on passe la ligne Sommets du graphe
+	
 
-    for(i = 0; i<=*pnbsommet; i++) { // on récupère les sommets
-        fscanf(pf,"%d %lf %lf %s", &(s.id), &(s.x), &(s.y), line, nom); //attention pb de lecture ?
+    for(i = 0; i<*pnbsommet; i++) { // on récupère les sommets
+
+	//fscanf(pf,"%d%lf%lf%s ", &(s.id), &(s.x), &(s.y), line);
+	if(fscanf(pf,"%d %lf %lf %s %s \n", &num, &(s.x), &(s.y),line,nom)!=5){
+		
+        	puts("erreur lecture sommet");
+		return 3; 
+		} 	
+
+	//line[strlen(line)-1]=0;
+	s.id = num;
+	s.line=strdup(line);
+	s.nom=strdup(nom);
         (*pgraphe)[s.id] = s;
-        fgets(mot,511,pf);
-        //printf("%s \n", mot);
 
-        //strcpy( graphe[i].nom,mot);
+	// gestion du hachage
+//	code_h = code(nom,taille_h);
+	//table_h[code_h] = ajout_tete_i(num, table_h[code_h]);
+	
     }
 
-
+	//affiche_hac(table_h,taille_h);
 
     fgets(mot,511,pf);  // on passe la ligne Arêtes du graphe : noeud1 noeud2 valeur
 
-    while(fscanf(pf,"%d %d %lf",&num, &(arc.arrivee), &(arc.cout))!=EOF ) { // on lit tant qu'on atteint pas la fin du fichier securite vis à vis du nb arc qui pourrait etre faux
+    while(fscanf(pf,"%d %d %lf",&num, &(arc.arrivee), &(arc.cout))!=EOF){
+	 // on lit tant qu'on atteint pas la fin du fichier securite vis à vis du nb arc qui pourrait etre faux
         (*pgraphe)[num].voisins = ajout_tete_a(arc,(*pgraphe)[num].voisins);
 
     }
