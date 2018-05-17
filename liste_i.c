@@ -9,14 +9,32 @@ int liste_vide_i(L_INT l){
     return !l;}
 
 void visualiser_i(L_INT l){
-    if (liste_vide_i(l)) printf("Liste Vide\n");
+    if (liste_vide_i(l)){ 
+	printf("Liste Vide\n"); 
+	return;	
+}
     else {
     	L_INT p=l;
     	while (!liste_vide_i(p)){
 		printf("%d -> ",p->val);
+//		i = p->val;
 		p=p->suiv;
+			/*
+			FILE* 	pf = NULL;
+			char mot[512];
+				pf = fopen("metroetu.csv", "rt");
+				//scanf("%d",&i);
+				i +=2;
+			for (;i>-1;i--){
+			    fgets(mot,511,pf);
+			}
+				printf("%s \n", mot);
+				fclose(pf);
+			*/
+
     	}
 	}
+	puts("fin liste\n");
 }
 
 L_INT supprimer_tete_i(L_INT l){

@@ -23,12 +23,12 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
     }
     fscanf(pf, "%d %d ", pnbsommet, &nbarc);
 
-	taille_h = 10 * *pnbsommet;
+	taille_h = *pnbsommet * *pnbsommet;
 
+	printf("TAILLE  %d HHHHH\n", taille_h);
 
     *pgraphe = calloc (*pnbsommet, sizeof(T_SOMMET));//allocation memoire pour graphe
-	table_h = calloc(taille_h,sizeof(L_INT));
-
+	
 
     if (*pgraphe == NULL) {
 
@@ -36,18 +36,27 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
         return 2;
     }
 
+
+	table_h = calloc(taille_h,sizeof(L_INT));
+
+	if(table_h ==NULL){
+		puts("erreur alloc hachage");
+		return 4;
+	
+	}
+	
+
     fgets(mot,511,pf); // on passe la ligne Sommets du graphe
 	
 
     for(i = 0; i<*pnbsommet; i++) { // on récupère les sommets
 
 	//fscanf(pf,"%d%lf%lf%s ", &(s.id), &(s.x), &(s.y), line);
-	if(fscanf(pf,"%d %lf %lf %s %s \n", &num, &(s.x), &(s.y),line,nom)!=5){
-		
+	if(fscanf(pf,"%d %lf %lf %s", &num, &(s.x), &(s.y),line)!=4){ // on ne peut pas lire le nom avec un scanf -> La defense = 2 string
         	puts("erreur lecture sommet");
 		return 3; 
 		} 	
-
+ 	fgets(nom,511,pf); // on recuperere le nom ici
 	//line[strlen(line)-1]=0;
 	s.id = num;
 	s.line=strdup(line);
@@ -55,8 +64,9 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
         (*pgraphe)[s.id] = s;
 
 	// gestion du hachage
-//	code_h = code(nom,taille_h);
-	//table_h[code_h] = ajout_tete_i(num, table_h[code_h]);
+	code_h = code(nom,taille_h);
+	//printf("HHHH %d HHHHH\n", code_h); 
+	table_h[code_h] = ajout_tete_i(num, table_h[code_h]);
 	
     }
 
