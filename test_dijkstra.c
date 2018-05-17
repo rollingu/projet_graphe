@@ -11,7 +11,7 @@ main(){
 	 int i; int depart=0; int arrivee = 5;
 	
 	
-	err = load_graphe("graphe1.txt",&graphe,&n);
+	err = load_graphe("grapheNewYork.csv",&graphe,&n);
 	printf("Graph load");
 	double peres[n]; L_INT adj;
 	visualiser_graphe(graphe,n);
@@ -54,6 +54,7 @@ main(){
 		chemin = ajout_tete_i(peres[temp],chemin);
 		temp = peres[temp];		
 	}
+<<<<<<< HEAD
 	//printf("%d",temp);
 	//if (peres[temp] == -1){
 	//	printf("Pas de chemin possible.\n");
@@ -65,5 +66,9 @@ main(){
 		
 
 	
+=======
+	printf("Chemin à prendre :\n");
+	visualiser_i(chemin);
+>>>>>>> 94fd83fa8e0271bf13f9c8bcae7ca435e526a499
 
 }
