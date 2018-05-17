@@ -87,7 +87,7 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
 void visualiser_graphe(T_SOMMET* graphe, int taille) {
     int i;
     for(i=0; i<taille; i++) {
-	affiche_s(graphe[i]);
+	afficher_s(graphe[i]);
     }
 
 
