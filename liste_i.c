@@ -10,16 +10,17 @@ int liste_vide_i(L_INT l){
 
 void visualiser_i(L_INT l){
     if (liste_vide_i(l)){ 
-	printf("Liste Vide\n"); 
+	//printf("Liste Vide\n"); 
 	return;	
 }
     else {
     	L_INT p=l;
     	while (!liste_vide_i(p)){
 		printf("%d -> ",p->val);
-//		i = p->val;
+		int i ;
+		i = p->val;
 		p=p->suiv;
-			/*
+			
 			FILE* 	pf = NULL;
 			char mot[512];
 				pf = fopen("metroetu.csv", "rt");
@@ -30,11 +31,11 @@ void visualiser_i(L_INT l){
 			}
 				printf("%s \n", mot);
 				fclose(pf);
-			*/
+			
 
     	}
 	}
-	puts("fin liste\n");
+	puts("fin liste\n\n\n\n\n\n");
 }
 
 L_INT supprimer_tete_i(L_INT l){

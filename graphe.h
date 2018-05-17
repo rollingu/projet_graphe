@@ -18,7 +18,7 @@
 //		2: erreur d'allocation du graphe
 //		3: erreur de lecture dans le fichier
 //		4: erreur allocation table hachage
-int load_graphe( char * nomfic, T_SOMMET** pgraphe, int* ptaille );
+int load_graphe( char * nomfic, T_SOMMET** pgraphe, int* ptaille, L_INT** ptable_h );
 
 
 // Fonction de visualisation du graphe

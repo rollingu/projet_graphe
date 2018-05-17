@@ -5,7 +5,7 @@
 #include "graphe.h"
 
 
-int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
+int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet, L_INT** ptable_h) {
     FILE* pf ;
     char line[128];
     char mot[512]; // on pourrait utiliser une seule de ces deux variables mais on choisit
@@ -13,7 +13,6 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
     int i, nbarc, code_h,taille_h,num;
     T_ARC arc;
     T_SOMMET s;
-	 L_INT* table_h;
 	
 
 
@@ -37,9 +36,9 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
     }
 
 
-	table_h = calloc(taille_h,sizeof(L_INT));
+	*ptable_h = calloc(taille_h,sizeof(L_INT));
 
-	if(table_h ==NULL){
+	if(*ptable_h ==NULL){
 		puts("erreur alloc hachage");
 		return 4;
 	
@@ -57,7 +56,9 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
 		return 3; 
 		} 	
  	fgets(nom,511,pf); // on recuperere le nom ici
-	//line[strlen(line)-1]=0;
+//	printf("%s \n",nom);
+	nom[strlen(nom)-1]='\0';
+//	printf("%s \n",nom);
 	s.id = num;
 	s.line=strdup(line);
 	s.nom=strdup(nom);
@@ -66,11 +67,11 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet) {
 	// gestion du hachage
 	code_h = code(nom,taille_h);
 	//printf("HHHH %d HHHHH\n", code_h); 
-	table_h[code_h] = ajout_tete_i(num, table_h[code_h]);
+	(*ptable_h)[code_h] = ajout_tete_i(num, (*ptable_h)[code_h]);
 	
     }
 
-	//affiche_hac(table_h,taille_h);
+	affiche_hac(*ptable_h,taille_h);
 
     fgets(mot,511,pf);  // on passe la ligne Arêtes du graphe : noeud1 noeud2 valeur
 
