@@ -24,6 +24,24 @@ main(){
 	scanf("%d", &arrivee);
 	printf("ok\n");
 	
+	//int pcc[5];
+	//int tas[5];
+	//for (i=0; i<5;i++){
+	//	pcc[i] = i;
+	//	tas[i] = i;
+	//}
+	//printf("tas creer\n");
+	//for (i=0; i<5;i++){
+	//	augmentetas(pcc,tas,i);
+	///}
+	//printf("Tas :\n");
+	//for (i=0; i<5;i++){
+	//	printf("%d",tas[i]);
+	//}
+	//printf("\npcc :\n");
+	//for (i=0; i<5;i++){
+	//	printf("%d",pcc[i]);
+	//}
 
 	algo(graphe,n,depart,arrivee,peres);
 	printf("Algo Done\n");
