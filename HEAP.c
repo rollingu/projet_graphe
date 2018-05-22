@@ -2,7 +2,7 @@
 
 void augmentetas(int * pcc, int * tas, int i){ // doit ajouter les éléments au tas dans l'ordre de pcc croissant
 	int temp = 0;
-	while ((i > 0) && (pcc[tas[(i-1)/2]] < pcc[tas[i]])) {
+	while ((i > 0) && (pcc[tas[(i-1)/2]] > pcc[tas[i]])) {
 		temp = tas[(i-1)/2];
 		tas[(i-1)/2] = tas[i];			
 		tas[i] = temp;
@@ -24,13 +24,13 @@ void descendretas(int * pcc, int * tas, int i,int n){
 	int j =0;
 	int temp;
 	while((i-1)>=(2*j+2)){
-		if (pcc[tas[j]]<pcc[tas[2*j+1]] && pcc[tas[2*j+1]]>pcc[tas[2*j+2]]){
+		if (pcc[tas[j]] > pcc[tas[2*j+1]] && pcc[tas[2*j+1]] > pcc[tas[2*j+2]]){
 			temp = tas[j];
 			tas[j] = tas[2*j+1];
 			tas[2*j+1] = temp;
 			j = 2*j+1;
 		}
-		else if (pcc[tas[j]]<pcc[tas[2*j+2]]){
+		else if (pcc[tas[j]]>pcc[tas[2*j+2]]){
 			temp = tas[j];
 			tas[j] = tas[2*j+2];
 			tas[2*j+2] = temp;
@@ -41,7 +41,7 @@ void descendretas(int * pcc, int * tas, int i,int n){
 		}
 	}
 	if ( (i-1) == (2*j+1)){
-		if (pcc[tas[j]] < pcc[tas[2*j+1]]){
+		if (pcc[tas[j]] > pcc[tas[2*j+1]]){
 			temp = tas[j];
 			tas[j] = tas[2*j+1];
 			tas[2*j+1] = temp;
@@ -79,6 +79,9 @@ void descendretas(int * pcc, int * tas, int i,int n){
 }
 
 void suppressiontas(int * pcc,int * tas, int i,int n){
+	if (i == 1){
+		
+	}
 	int temp = tas[0];
 	tas[0] = tas[i-1];
 	tas[i-1] = temp;

@@ -49,12 +49,26 @@ main(){
 	
 	L_INT chemin = creer_liste_i();
 	chemin = ajout_tete_i(arrivee,chemin);
-	while (temp != depart){
+	
+	while (temp != depart && peres[temp] != -1){
 		chemin = ajout_tete_i(peres[temp],chemin);
 		temp = peres[temp];		
-		
 	}
+<<<<<<< HEAD
+	//printf("%d",temp);
+	//if (peres[temp] == -1){
+	//	printf("Pas de chemin possible.\n");
+	//}
+	//else{
+		printf("Chemin à prendre :\n");
+		visualiser(chemin);
+	//}
+		
+
+	
+=======
 	printf("Chemin à prendre :\n");
 	visualiser_i(chemin);
+>>>>>>> 94fd83fa8e0271bf13f9c8bcae7ca435e526a499
 
 }
