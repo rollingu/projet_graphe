@@ -16,7 +16,7 @@ int code(char * mot, int l) {
         res += (res*a + mot[i] ) %l ;
     }
 
-    return res%l;
+    return abs(res%l);
 }
 
 

@@ -14,7 +14,7 @@ main(){
 	err = load_graphe("grapheNewYork.csv",&graphe,&n);
 	printf("Graph load");
 	double peres[n]; L_INT adj;
-	visualiser_graphe(graphe,n);
+	//visualiser_graphe(graphe,n);
 	
 	
 	printf("\n graphload\n");
