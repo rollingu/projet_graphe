@@ -5,15 +5,15 @@
 #include "dijkstra.h"
 
 
-main(){ char* nomfic; 
+main(){ char nomfic[128]; 
 	char nom_depart[256];
 	char nom_arrive[256];
-	int err,n,code_d,code_a; 
+	int err,n,code_d,code_a,taille_h; 
 	T_SOMMET * graphe = NULL;
 	L_INT* table_h = NULL;
 	int visu;
 	//visu = 1;
-	visu = 0;
+	visu = 1;
 	//puts("Entrez 0 pour ne pas visualiser le graphe, 1 sinon :");
 	//scanf("%d", &visu); 
 
@@ -22,26 +22,30 @@ main(){ char* nomfic;
 
 
 	puts("Entrez le nom du fichier graphe :");
-	scanf("%s",nomfic);
-	
+	gets(nomfic);
 	err = load_graphe(nomfic,&graphe,&n,&table_h);
 
-	
+	taille_h = 500*n;
+
+
+	printf("TAILLE  %d HHHHH\n", taille_h);
+
+
 	puts("Entrez le nom du sommet de depart :");
-	scanf("%s",nom_depart);
+	gets(nom_depart);
 
 	puts("Entrez le nom du sommet d'arrivee :");
-	scanf("%s",nom_arrive);
+	gets(nom_arrive);
 
-	code_d = code(nom_depart,n*n);
-	code_a = code(nom_arrive,n*n);
+	code_d = code(nom_depart,500*n);
+	code_a = code(nom_arrive,500*n);
 
 	printf("%d     %d \n",code_d,code_a);
 
-	if(table_h[code_d]->suiv != NULL ){
-	puts("Plusieurs sommet pour le depart");
+	printf("|%s|	|%s| \n",nom_depart,nom_arrive);
 
-	}
+	visualiser_i(table_h[code_d]);
+	
 
     	printf("Le code d'erreur du chargement du graphe est : %d err\n", err);
 	

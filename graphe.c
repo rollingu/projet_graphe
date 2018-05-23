@@ -24,7 +24,7 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet, L_INT** ptable_
 
 	taille_h = 500 * *pnbsommet;
 
-	//printf("TAILLE  %d HHHHH\n", taille_h);
+	printf("TAILLE  %d HHHHH\n", taille_h);
 
     *pgraphe = calloc (*pnbsommet, sizeof(T_SOMMET));//allocation memoire pour graphe
 	
@@ -66,7 +66,8 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet, L_INT** ptable_
 
 	// gestion du hachage
 	code_h = code(nom,taille_h);
-	//printf("HHHH %d HHHHH\n", code_h); 
+	printf("HHHH %d HHHHH\n", code_h); 
+	printf("HHHH%sHHHHH\n", s.nom);
 	(*ptable_h)[code_h] = ajout_tete_i(num, (*ptable_h)[code_h]);
 	
     }
