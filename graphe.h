@@ -4,6 +4,9 @@
 #include "liste_arc.h"
 #include "hachage.h"
 
+#ifndef _GRAPHE_H_H
+#define _GRAPHE_H_H
+
 
 
 // Fonction de chargement du graphe
@@ -18,7 +21,7 @@
 //		2: erreur d'allocation du graphe
 //		3: erreur de lecture dans le fichier
 //		4: erreur allocation table hachage
-int load_graphe( char * nomfic, T_SOMMET** pgraphe, int* ptaille );
+int load_graphe( char * nomfic, T_SOMMET** pgraphe, int* ptaille, L_INT** ptable_h );
 
 
 // Fonction de visualisation du graphe
@@ -27,3 +30,6 @@ int load_graphe( char * nomfic, T_SOMMET** pgraphe, int* ptaille );
 //   taille : IN. taille du graphe
 // RETURN void
 void visualiser_graphe(T_SOMMET * pgraphe, int taille);
+
+#endif
+

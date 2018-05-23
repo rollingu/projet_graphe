@@ -18,7 +18,7 @@ typedef struct {			// on définit un sommet par son
 // PARAMETRES
 //	s : IN. un sommet qui va etre afficher
 // RETURN
-void afficher_s(T_SOMMET s);
+void affiche_s(T_SOMMET s);
 
 #endif
 
