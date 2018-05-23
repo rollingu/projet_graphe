@@ -56,10 +56,6 @@ main(){
 		chemin = ajout_tete_i(peres[temp],chemin);
 		temp = peres[temp];		
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> c8e77a190f7bb27c1d13752ae423bc7ae7675017
 	//printf("%d",temp);
 	if (temp == -1){
 		printf("Pas de chemin possible.\n");
@@ -67,15 +63,8 @@ main(){
 	else{
 		printf("Chemin à prendre :\n");
 		visualiser_i(chemin);
-<<<<<<< HEAD
 	}
 		
 
-	printf("Chemin à prendre :\n");
-	visualiser_i(chemin);
-
-=======
-	//}
->>>>>>> c8e77a190f7bb27c1d13752ae423bc7ae7675017
 
 }
