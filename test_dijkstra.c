@@ -9,12 +9,13 @@ main(){
 	
 	int n,err; T_SOMMET * graphe = NULL;
 	 int i; int depart=0; int arrivee = 5;
+	L_INT* table_h = NULL;
 	
 	
-	err = load_graphe("grapheNewYork.csv",&graphe,&n);
+	err = load_graphe("metroetu.csv",&graphe,&n,&table_h);
 	printf("Graph load");
 	double peres[n]; L_INT adj;
-	//visualiser_graphe(graphe,n);
+	//visualiserg_graphe(graphe,n);
 	
 	
 	printf("\n graphload\n");
@@ -54,21 +55,13 @@ main(){
 		chemin = ajout_tete_i(peres[temp],chemin);
 		temp = peres[temp];		
 	}
-<<<<<<< HEAD
 	//printf("%d",temp);
 	//if (peres[temp] == -1){
 	//	printf("Pas de chemin possible.\n");
 	//}
 	//else{
 		printf("Chemin à prendre :\n");
-		visualiser(chemin);
+		visualiser_i(chemin);
 	//}
-		
-
-	
-=======
-	printf("Chemin à prendre :\n");
-	visualiser_i(chemin);
->>>>>>> 94fd83fa8e0271bf13f9c8bcae7ca435e526a499
 
 }

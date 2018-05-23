@@ -24,7 +24,7 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet, L_INT** ptable_
 
 	taille_h = *pnbsommet * *pnbsommet;
 
-	printf("TAILLE  %d HHHHH\n", taille_h);
+	//printf("TAILLE  %d HHHHH\n", taille_h);
 
     *pgraphe = calloc (*pnbsommet, sizeof(T_SOMMET));//allocation memoire pour graphe
 	
@@ -88,7 +88,7 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet, L_INT** ptable_
 void visualiser_graphe(T_SOMMET* graphe, int taille) {
     int i;
     for(i=0; i<taille; i++) {
-	afficher_s(graphe[i]);
+	affiche_s(graphe[i]);
     }
 
 

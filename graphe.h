@@ -4,6 +4,9 @@
 #include "liste_arc.h"
 #include "hachage.h"
 
+#ifndef _GRAPHE_H_H
+#define _GRAPHE_H_H
+
 
 
 // Fonction de chargement du graphe
@@ -27,3 +30,6 @@ int load_graphe( char * nomfic, T_SOMMET** pgraphe, int* ptaille, L_INT** ptable
 //   taille : IN. taille du graphe
 // RETURN void
 void visualiser_graphe(T_SOMMET * pgraphe, int taille);
+
+#endif
+

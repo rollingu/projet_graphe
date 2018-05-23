@@ -10,7 +10,7 @@ int liste_vide_i(L_INT l){
 
 void visualiser_i(L_INT l){
     if (liste_vide_i(l)){ 
-	//printf("Liste Vide\n"); 
+//	printf("Liste Vide\n"); 
 	return;	
 }
     else {
@@ -23,7 +23,7 @@ void visualiser_i(L_INT l){
 			
 			FILE* 	pf = NULL;
 			char mot[512];
-				pf = fopen("metroetu.csv", "rt");
+				pf = fopen("graphe1.txt", "rt");
 				//scanf("%d",&i);
 				i +=2;
 			for (;i>-1;i--){
