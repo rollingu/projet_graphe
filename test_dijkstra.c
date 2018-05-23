@@ -3,6 +3,7 @@
 #include "liste_arc.h"
 #include "graphe.h"
 #include "dijkstra.h"
+#include "hachage.h"
 
 
 main(){
@@ -54,21 +55,19 @@ main(){
 		chemin = ajout_tete_i(peres[temp],chemin);
 		temp = peres[temp];		
 	}
-<<<<<<< HEAD
+
 	//printf("%d",temp);
-	//if (peres[temp] == -1){
-	//	printf("Pas de chemin possible.\n");
-	//}
-	//else{
+	if (temp == -1){
+		printf("Pas de chemin possible.\n");
+	}
+	else{
 		printf("Chemin à prendre :\n");
-		visualiser(chemin);
-	//}
+		visualiser_i(chemin);
+	}
 		
 
-	
-=======
 	printf("Chemin à prendre :\n");
 	visualiser_i(chemin);
->>>>>>> 94fd83fa8e0271bf13f9c8bcae7ca435e526a499
+
 
 }
