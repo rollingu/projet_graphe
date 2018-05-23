@@ -22,7 +22,7 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet, L_INT** ptable_
     }
     fscanf(pf, "%d %d ", pnbsommet, &nbarc);
 
-	taille_h = *pnbsommet * *pnbsommet;
+	taille_h = 500 * *pnbsommet;
 
 	//printf("TAILLE  %d HHHHH\n", taille_h);
 
@@ -61,7 +61,7 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet, L_INT** ptable_
 //	printf("%s \n",nom);
 	s.id = num;
 	s.line=strdup(line);
-	s.nom=strdup(nom);
+	s.nom=strdup(&nom[1]);
         (*pgraphe)[s.id] = s;
 
 	// gestion du hachage
@@ -71,7 +71,7 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet, L_INT** ptable_
 	
     }
 
-	affiche_hac(*ptable_h,taille_h);
+	//affiche_hac(*ptable_h,taille_h);
 
     fgets(mot,511,pf);  // on passe la ligne Arêtes du graphe : noeud1 noeud2 valeur
 

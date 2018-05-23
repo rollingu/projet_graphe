@@ -23,7 +23,7 @@ void visualiser_i(L_INT l){
 			
 			FILE* 	pf = NULL;
 			char mot[512];
-				pf = fopen("graphe1.txt", "rt");
+				pf = fopen("metroetu.csv", "rt");
 				//scanf("%d",&i);
 				i +=2;
 			for (;i>-1;i--){
@@ -35,7 +35,7 @@ void visualiser_i(L_INT l){
 
     	}
 	}
-	puts("fin liste\n\n\n\n\n\n");
+	puts("fin liste\n\n\n");
 }
 
 L_INT supprimer_tete_i(L_INT l){
