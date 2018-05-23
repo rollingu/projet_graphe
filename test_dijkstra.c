@@ -12,10 +12,10 @@ main(){
 	 int i; int depart=0; int arrivee = 5;
 	L_INT* table_h = NULL;
 	
-	
-	err = load_graphe("metroetu.csv",&graphe,&n,&table_h);
+	err = load_graphe("grapheNewYork.csv",&graphe,&n,&table_h);
 	printf("Graph load");
 	double peres[n]; L_INT adj;
+	
 	//visualiserg_graphe(graphe,n);
 	
 	
@@ -25,28 +25,9 @@ main(){
 	printf("Arrivee ?\n");
 	scanf("%d", &arrivee);
 	printf("ok\n");
-	
-	//int pcc[5];
-	//int tas[5];
-	//for (i=0; i<5;i++){
-	//	pcc[i] = i;
-	//	tas[i] = i;
-	//}
-	//printf("tas creer\n");
-	//for (i=0; i<5;i++){
-	//	augmentetas(pcc,tas,i);
-	///}
-	//printf("Tas :\n");
-	//for (i=0; i<5;i++){
-	//	printf("%d",tas[i]);
-	//}
-	//printf("\npcc :\n");
-	//for (i=0; i<5;i++){
-	//	printf("%d",pcc[i]);
-	//}
 
 	algo(graphe,n,depart,arrivee,peres);
-	printf("Algo Done\n");
+	printf("Algo Dijkstra fait.\n");
 	int temp = arrivee;
 	
 	L_INT chemin = creer_liste_i();
@@ -56,15 +37,24 @@ main(){
 		chemin = ajout_tete_i(peres[temp],chemin);
 		temp = peres[temp];		
 	}
-	//printf("%d",temp);
-	if (temp == -1){
-		printf("Pas de chemin possible.\n");
+	
+	L_INT tmp = chemin;
+	if (tmp->val != depart){
+		printf("Pas de chemin possible\n");
+		goto fin;
 	}
-	else{
-		printf("Chemin à prendre :\n");
-		visualiser_i(chemin);
-	}
+	tmp = tmp ->suiv;
+	while (tmp != NULL){
+		if (tmp->val == -1){
+			printf("Pas de cehmin possible\n");
+			goto fin;
+		}
+		tmp = tmp->suiv;
 		
-
+	}
+	printf("Chemin a prendre :\n");
+	visualiser_i(chemin);
+	fin:
+	printf("Terminer.\n");
 
 }

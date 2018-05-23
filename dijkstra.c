@@ -91,7 +91,7 @@ void algo( T_SOMMET * graphe, int taille, int a, int b, double * pere){ // avec 
 	do
 	{
 		
-		printf("Debut de tour :\n");
+		//printf("Debut de tour :\n");
 		// Selection du sommet sj de C de plus petite valeur de pcc[j]	
 
 		// avec le tas : en supposant que l'augmentation du tas ai ete bien faite, tas[0] est deja le numero du sommet de plus ptit pcc
@@ -122,7 +122,7 @@ void algo( T_SOMMET * graphe, int taille, int a, int b, double * pere){ // avec 
 		//}
 		// ici : sj est le sommet de plus petite valeur de pcc[j]
 		
-		printf("Valeur de sj : %d \n",sj);
+		//printf("Valeur de sj : %d \n",sj);
 		//c = supprime_element_i(sj,c);
 
 		// pour supprimer lelement sj ( qui est celui de plus petit pcc, donc le premier) dans le tas :
@@ -148,7 +148,7 @@ void algo( T_SOMMET * graphe, int taille, int a, int b, double * pere){ // avec 
 			}
 			point1 = point1->suiv;
 		}
-		printf("Fin de tour :\n");
+		//printf("Fin de tour :\n");
 		
 		
 	} while ( (pcc[sj] < INT_MAX) && (s[b]==0));
