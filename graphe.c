@@ -24,7 +24,7 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet, L_INT** ptable_
 
 	taille_h = 500 * *pnbsommet;
 
-	printf("TAILLE  %d HHHHH\n", taille_h);
+	//printf("TAILLE  %d HHHHH\n", taille_h);
 
     *pgraphe = calloc (*pnbsommet, sizeof(T_SOMMET));//allocation memoire pour graphe
 	
@@ -50,7 +50,6 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet, L_INT** ptable_
 
     for(i = 0; i<*pnbsommet; i++) { // on récupère les sommets
 
-	//fscanf(pf,"%d%lf%lf%s ", &(s.id), &(s.x), &(s.y), line);
 	if(fscanf(pf,"%d %lf %lf %s", &num, &(s.x), &(s.y),line)!=4){ // on ne peut pas lire le nom avec un scanf -> La defense = 2 string
         	puts("erreur lecture sommet");
 		return 3; 
@@ -66,8 +65,8 @@ int load_graphe(char* nomfic,T_SOMMET** pgraphe, int* pnbsommet, L_INT** ptable_
 
 	// gestion du hachage
 	code_h = code(nom,taille_h);
-	printf("HHHH %d HHHHH\n", code_h); 
-	printf("HHHH%sHHHHH\n", s.nom);
+	//printf("HHHH %d HHHHH\n", code_h); 
+	//printf("HHHH%sHHHHH\n", s.nom);
 	(*ptable_h)[code_h] = ajout_tete_i(num, (*ptable_h)[code_h]);
 	
     }
