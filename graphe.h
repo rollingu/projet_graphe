@@ -28,7 +28,7 @@ int load_graphe( char * nomfic, T_SOMMET** pgraphe, int* ptaille, L_INT** ptable
 // PARAMETRES
 //  *pgraphe: IN. graphe
 //   taille : IN. taille du graphe
-// RETURN void
+// RETURN	void
 void visualiser_graphe(T_SOMMET * pgraphe, int taille);
 
 #endif
